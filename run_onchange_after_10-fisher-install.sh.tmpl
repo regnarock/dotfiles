@@ -1,0 +1,7 @@
+#!/bin/sh
+# fish_plugins hash: {{ include "dot_config/private_fish/fish_plugins" | sha256sum }}
+set -e
+command -v fish >/dev/null 2>&1 || exit 0
+fish -c 'functions -q fisher' 2>/dev/null || \
+  fish -c 'curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher'
+fish -c 'fisher update'
