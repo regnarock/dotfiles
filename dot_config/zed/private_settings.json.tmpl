@@ -40,24 +40,10 @@
         "github_personal_access_token": "{{ onepasswordRead "op://Private/f6ziidozdp4tzbwr4ibeunqoda/token" }}",
       },
     },
-    "postgres-context-server": {
-      "enabled": true,
-      "settings": {
-        "database_url": "postgresql://myuser:mypassword@localhost:5432/mydatabase",
-      },
-    },
     "sequential-thinking": {
       "enabled": true,
       "command": "npx",
       "args": ["-y", "@modelcontextprotocol/server-sequential-thinking"],
-    },
-    "github": {
-      "enabled": true,
-      "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-github"],
-      "env": {
-        "GITHUB_PERSONAL_ACCESS_TOKEN": "{{ onepasswordRead "op://Private/f6ziidozdp4tzbwr4ibeunqoda/token" }}",
-      },
     },
     "notion": {
       "enabled": true,
