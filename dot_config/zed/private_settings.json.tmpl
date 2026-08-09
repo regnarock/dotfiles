@@ -1,0 +1,175 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run the `zed: Open Default Settings` command
+// from the command palette
+{
+  "diff_view_style": "unified",
+  "cli_default_open_behavior": "existing_window",
+  "project_panel": {
+    "dock": "right"
+  },
+  "outline_panel": {
+    "dock": "right"
+  },
+  "collaboration_panel": {
+    "dock": "right"
+  },
+  "git_panel": {
+    "dock": "right"
+  },
+  "agent_ui_font_size": 14.0,
+  "buffer_line_height": "standard",
+  "buffer_font_weight": 250.0,
+  "agent_servers": {
+    "claude-acp": {
+      "type": "registry",
+      "default_config_options": {
+        "mode": "bypassPermissions",
+        "model": "claude-fable-5[1m]"
+      }
+    }
+  },
+  "context_servers": {
+    "mcp-server-github": {
+      "enabled": true,
+      "settings": {
+        "github_personal_access_token": "{{ onepasswordRead "op://Private/f6ziidozdp4tzbwr4ibeunqoda/token" }}",
+      },
+    },
+    "postgres-context-server": {
+      "enabled": true,
+      "settings": {
+        "database_url": "postgresql://myuser:mypassword@localhost:5432/mydatabase",
+      },
+    },
+    "sequential-thinking": {
+      "enabled": true,
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-sequential-thinking"],
+    },
+    "github": {
+      "enabled": true,
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "{{ onepasswordRead "op://Private/f6ziidozdp4tzbwr4ibeunqoda/token" }}",
+      },
+    },
+    "notion": {
+      "enabled": true,
+      "command": "npx",
+      "args": ["-y", "@notionhq/notion-mcp-server"],
+      "env": {
+        "NOTION_TOKEN": "{{ onepasswordRead "op://Private/4vqsoscrxmwle52yruta4kgwke/token" }}",
+      },
+    },
+  },
+  "agent": {
+    "dock": "left",
+    "default_model": {
+      "provider": "openai",
+      "model": "gpt-5-codex",
+    },
+  },
+  "base_keymap": "JetBrains",
+  "ui_font_size": 15.0,
+  "buffer_font_size": 13.0,
+  "theme": {
+    "mode": "system",
+    "light": "One Light",
+    "dark": "One Dark",
+  },
+  "terminal": {
+    "font_family": "FiraCode Nerd Font Mono",
+    "blinking": "on",
+    "option_as_meta": true,
+  },
+
+  "format_on_save": "on",
+  "languages": {
+    "Markdown": {
+      "format_on_save": "off"
+    },
+    "Java": {
+      "formatter": {
+        "external": {
+          "command": "google-java-format",
+          "arguments": ["-"],
+        },
+      },
+      "format_on_save": "on",
+    },
+  },
+  "features": {
+    "edit_prediction_provider": "zed",
+  },
+
+  "lsp": {
+    "jdtls": {
+      "enabled": true,
+      "settings": {
+        "java_home": "/Users/widgethiro/Library/Java/JavaVirtualMachines/temurin-25.0.1/Contents/Home",
+        "lombok_support": true,
+        "jdk_auto_download": false,
+      },
+      "initialization_options": {
+        "settings": {
+          "java": {
+            "autobuild": {
+              "enabled": false,
+            },
+            "maxConcurrentBuilds": 4,
+            "referencesCodeLens": {
+              "enabled": false,
+            },
+            "implementationsCodeLens": {
+              "enabled": false,
+            },
+            "completion": {
+              "lazyResolveTextEdit": {
+                "enabled": true,
+              },
+            },
+            "configuration": {
+              "updateBuildConfiguration": "interactive",
+            },
+            "format": {
+              "enabled": true,
+              "settings": {
+                "url": "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
+                "profile": "GoogleStyle",
+              },
+            },
+            "import": {
+              "exclusions": [
+                "**/node_modules/**",
+                "**/.metadata/**",
+                "**/archetype-resources/**",
+                "**/META-INF/maven/**",
+                "**/target/**",
+                "**/.claude/**",
+              ],
+            },
+            "project": {
+              "resourceFilters": [
+                "node_modules",
+                ".git",
+                "target",
+                ".metadata",
+                "dist",
+                "build",
+                ".idea",
+                ".vscode",
+                ".claude",
+              ],
+            },
+          },
+        },
+      },
+    },
+  },
+}
