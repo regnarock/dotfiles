@@ -1,0 +1,10 @@
+# macOS reports this machine's layout as `com.apple.keylayout.USInternational-PC`.
+# Ghostty's `mapAppleId` (src/input/keyboard.zig) matches layout IDs exactly and
+# only knows `...US` and `...USInternational`, so the `-PC` variant falls through
+# to `unknown` and `macos-option-as-alt` defaults to false -- which kills every
+# Alt-based TUI chord (omp's Alt+A/M/P/R/L, fish, nvim).
+#
+# Safe to force on: on this layout the accented characters live on unmodified
+# dead keys (' " ` ^ -> e/e/e/e), not on the Option layer, which carries only
+# symbols. The one casualty is c-cedilla, formerly Option+C.
+macos-option-as-alt = true
