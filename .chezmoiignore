@@ -3,3 +3,5 @@
 .config/fish/conf.d
 .config/fish/fish_variables
 .config/op
+.config/zed/embeddings
+.config/zed/prompts
